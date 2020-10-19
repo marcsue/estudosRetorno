@@ -1,11 +1,8 @@
 package com.example.estudos.dataModel;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +11,7 @@ public class Departamento
 {
 	@Id
 	@Column(name = "id")
-	private Long id;
+	private Integer id;
 	
 	@Column(name = "nome")
 	private String nome;
@@ -26,7 +23,7 @@ public class Departamento
 
 	public Departamento() {}
 	
-	public Departamento(Long id, String nome, String sigla) 
+	public Departamento(Integer id, String nome, String sigla) 
 	{
 		super();
 		this.id = id;
@@ -34,11 +31,11 @@ public class Departamento
 		this.sigla = sigla;
 	}
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

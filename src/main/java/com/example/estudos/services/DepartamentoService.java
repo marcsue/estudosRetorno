@@ -1,5 +1,7 @@
 package com.example.estudos.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +19,51 @@ public class DepartamentoService
 		return departamentoRepository.findAll();
 	}
 	
+	public Optional<Departamento> findById(Integer id)
+	{
+		return departamentoRepository.findById(id);
+	}
+	
+	public Departamento insertDepartamento(Departamento departamento)
+	{
+		return departamentoRepository.save(departamento);
+	}
+	
+	public Iterable<Departamento> departamentosContainsT ()
+	{
+		return departamentoRepository.departamentosContainsT();
+	}
+	
+	public Boolean deleteDepartamento (Departamento departamento)
+	{
+		departamentoRepository.delete(departamento);
+		if (findById(departamento.getId()) == null)
+			return true;
+		else
+			return false;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

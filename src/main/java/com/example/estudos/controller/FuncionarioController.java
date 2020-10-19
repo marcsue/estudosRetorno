@@ -1,7 +1,5 @@
 package com.example.estudos.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +20,7 @@ public class FuncionarioController
 	@GetMapping("/findAll")
 	public @ResponseBody Iterable<Funcionario> buscarTodos()
 	{
-		return funcionarioService.buscarTodos();
+		return funcionarioService.findAlll();
 	}
 
 }
