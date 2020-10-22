@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.estudos.dao.DepartamentoRepository;
 import com.example.estudos.dataModel.Departamento;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +36,14 @@ public class DepartamentoService
 	{
 		try 
 		{
-			return departamentoRepository.findById(id);
+			if (!(departamentoRepository.findById(id).equals(null)))
+			{
+				return departamentoRepository.findById(id);
+			}
+			else
+			{
+				return null;
+			}
 		} 
 		catch (Exception e) 
 		{
@@ -72,19 +80,17 @@ public class DepartamentoService
 		}
 	}
 	
+	
 	public Boolean deleteDepartamento (Departamento departamento)
 	{
 		try
 		{
 			departamentoRepository.delete(departamento);
-			if (findById(departamento.getId()) == null)
-				return true;
-			else
-				return false;
-		}
+			return true;
+		}	
 		catch (Exception e) 
 		{
-			log.error("erro ao deletar departamento",e.getMessage());
+			log.error("Erro ao deletar "+departamento.getNome() ,e.getMessage());
 			return false;
 		}
 	}

@@ -48,7 +48,7 @@ public class DepartamentoController
 	 
 	
 	@RequestMapping(value = "/delete",method = RequestMethod.DELETE,  consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
-	public Boolean deleteDepartamento (@RequestBody Departamento departamento)
+	public @ResponseBody Boolean deleteDepartamento (@RequestBody Departamento departamento)
 	{
 		return departamentoService.deleteDepartamento(departamento);
 		

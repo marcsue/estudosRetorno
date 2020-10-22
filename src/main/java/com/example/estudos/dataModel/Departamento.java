@@ -19,8 +19,6 @@ public class Departamento
 	@Column(name = "sigla")
 	private String sigla;
 
-	
-
 	public Departamento() {}
 	
 	public Departamento(Integer id, String nome, String sigla) 

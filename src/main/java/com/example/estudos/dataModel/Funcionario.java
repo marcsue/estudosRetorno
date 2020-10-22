@@ -17,16 +17,16 @@ public class Funcionario
 	private String nome;
 	
 	@Column( name = "departamento")
-	private String sigla;
+	private Integer departamento;
 	
 	public Funcionario () {}
 	
-	public Funcionario(long cpf, String nome, String departamento) 
+	public Funcionario(long cpf, String nome, Integer departamento) 
 	{
 		super();
 		this.cpf = cpf;
 		this.nome = nome;
-		this.sigla = departamento;
+		this.departamento = departamento;
 	}
 
 	public long getCpf() {
@@ -44,18 +44,17 @@ public class Funcionario
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getDepartamento() {
-		return sigla;
+	public Integer getDepartamento() {
+		return departamento;
 	}
 
-	public void setDepartamento(String departamento) {
-		this.sigla = departamento;
+	public void setDepartamento(Integer departamento) {
+		this.departamento = departamento;
 	}
 
 	@Override
 	public String toString() {
-		return "Funcionario [cpf=" + cpf + ", nome=" + nome + ", departamento=" + sigla + "]";
+		return "Funcionario [cpf=" + cpf + ", nome=" + nome + ", departamento=" + departamento + "]";
 	}
 	
 	
